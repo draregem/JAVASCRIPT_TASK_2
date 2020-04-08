@@ -1,0 +1,34 @@
+local-ntp.html:1 A cookie associated with a cross-site resource at https://ogs.google.com/ was set without the `SameSite` attribute. A future release of Chrome will only deliver cookies with cross-site requests if they are set with `SameSite=None` and `Secure`. You can review cookies in developer tools under Application>Storage>Cookies and see more details at https://www.chromestatus.com/feature/5088147346030592 and https://www.chromestatus.com/feature/5633521622188032.
+local-ntp.html:1 A cookie associated with a cross-site resource at http://google.com/ was set without the `SameSite` attribute. A future release of Chrome will only deliver cookies with cross-site requests if they are set with `SameSite=None` and `Secure`. You can review cookies in developer tools under Application>Storage>Cookies and see more details at https://www.chromestatus.com/feature/5088147346030592 and https://www.chromestatus.com/feature/5633521622188032.
+local-ntp.html:1 A cookie associated with a cross-site resource at https://google.com/ was set without the `SameSite` attribute. A future release of Chrome will only deliver cookies with cross-site requests if they are set with `SameSite=None` and `Secure`. You can review cookies in developer tools under Application>Storage>Cookies and see more details at https://www.chromestatus.com/feature/5088147346030592 and https://www.chromestatus.com/feature/5633521622188032.
+local-ntp.html:1 A cookie associated with a cross-site resource at https://accounts.google.com/ was set without the `SameSite` attribute. A future release of Chrome will only deliver cookies with cross-site requests if they are set with `SameSite=None` and `Secure`. You can review cookies in developer tools under Application>Storage>Cookies and see more details at https://www.chromestatus.com/feature/5088147346030592 and https://www.chromestatus.com/feature/5633521622188032.
+const data = [
+{principal:2500,time:1.8},{principal:1000,time:5},{principal:3000,time:1},{principal:2000,time:3},
+];
+function interestCalculator(interest){
+let interestData=[];
+for(let n of data){
+let rate = 0;
+    if (n.principal >= 2500 && (n.time >1 && n.time < 3)){
+        rate = 3;
+    } 
+   else if (n.principal >= 2500 && n.time >= 3){
+       rate = 4;
+    }
+   else if (n.principal < 2500 || n.time <= 1){
+     rate=2;
+    }
+   else{
+       rate=1;
+   }
+let interest=(n.principal * n.time * rate)/100;
+interestData.push({principal: n.principal, time:n.time, rate:rate, interest: interest});
+}
+
+      console.log(interestData);  
+      return interestData;
+       
+}
+interestCalculator (data);
+VM207:24 (4) [{…}, {…}, {…}, {…}]
+(4) [{…}, {…}, {…}, {…}]0: {principal: 2500, time: 1.8, rate: 3, interest: 135}1: {principal: 1000, time: 5, rate: 2, interest: 100}2: {principal: 3000, time: 1, rate: 2, interest: 60}3: {principal: 2000, time: 3, rate: 2, interest: 120}length: 4__proto__: Array(0)
